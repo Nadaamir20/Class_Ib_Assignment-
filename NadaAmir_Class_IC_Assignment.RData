@@ -1,0 +1,144 @@
+#variables
+
+#store values in R
+# <- assignment operator 
+# gene name "tp53"
+
+gene <- "tp53"
+
+# to reterive value in console
+gene
+print(gene)
+
+# 2.3, 4.6, 3.6, 7.2, 4.7
+# to store these values in one variable
+
+expression_levels <- c(2.3, 4.6, 3.6, 7.2, 4.7)
+
+# to import data as varible 
+raw_data <- read.csv(file.choose())
+raw_data
+
+# Rules
+
+# varible name must be start with letter
+1gene <- 25 # varible name cant start with numbers
+
+gene1 <- 25 # add number at the end 
+
+# no spaces allowed variable name 
+sample id <- "s01"
+
+# instead of spaces use underscore _ or dot .
+sample_id <- "s01"
+sample.id <- "s01"
+
+# R is case sensitive 
+glucose_level <- 110
+Glucose_level <- 110
+
+# R overwrite varible without any warning
+glucose_level <- c(110, 90, 120, 20)
+
+data <- raw_data 
+
+raw_data$patient_id <- NULL # this code will remove patient_id column 
+
+raw_data
+
+# for data cleaning and transforming create a variable for that data 
+
+clean_data <- data[,-1] # this code deleted the patient_id column
+
+
+
+# comments 
+# help to understand your code 
+# comments are for our own understanding R doesnt consider it as code 
+
+# data_2 <- 23
+data_2 <- 23
+
+
+# pro tip: turn comments into heading 
+#### Heading 1 ####
+#### Heading2 ####
+
+# Keywords
+# these are reserved words in for specific function 
+# if, else, true, false, for so on.......
+
+help("reserved")
+help(mean)
+?median
+
+
+#sort values larget to smallest
+sorted_age <- sort(raw_data$age, decreasing =  TRUE)
+sorted_age
+raw_data$age
+
+#sort values smallest to largest
+sorted_age2 <- sort(raw_data$age, decreasing =  FALSE)
+sorted_age2
+
+
+# if else, helps to make decision in R
+# if & else, which are used for creating logical conditions
+
+gene_expression <- 30
+
+if(gene_expression > 50)}
+  print("Gene is highly expressed")
+  }
+
+# here is is the keyword that check the condition if gene_expression 
+# condition is true in this case 
+#in case if the condition is false 
+
+if(gene_expression > 50)}
+print("Gene is highly expressed")
+}else {
+  print("Gene expression is low")
+}
+
+# you cant use keyword variable name 
+if <- 28
+
+
+# for loop: used to repeat same tasks multiple time 
+for (variable in vector) 
+
+# let say we want to convert data type of maltiple in of our 
+str(raw_data)
+# gender is categorical data type 
+# it should be in a factor format 
+# gender column from chr to factor 
+# diagnosis: cancer/normal it is also a categorical variable 
+# smoker: chr from factor 
+
+# instead of manually conversion we will use this for loop function for automatic conversion 
+#ofall these 3 column into factor
+# i want to save output in clean_data
+
+# create copy of raw_data with clean_data
+clean_data <- raw_data
+str(clean_data)
+
+# to convert column automatically into factor 
+# create for loop function
+
+for (i in 1:ncol(clean_data)) { 
+  if(is.character(clean_data[[i]])) { 
+    clean_data[[i]] <- as.factor(clean_data[[i]])
+  }
+}
+
+
+
+
+
+str(clean_data)
+
+
+    
